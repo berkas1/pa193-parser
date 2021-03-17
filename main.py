@@ -1,8 +1,9 @@
 import argparse
+import json
 
 config = {'all': False, 'parse_title': False, 'biblio' : False, 'versions' : False}
 
-output = []
+outputData = {}
 
 
 
@@ -55,17 +56,25 @@ def main():
 
 
 
+    print(json.dumps(outputData))
+
 
 
 
 def parse_title():
-    print("parse title")
+    title = ""
+
+    outputData["title"] = title
 
 def parse_versions():
-    pass
+    data = []
+
+    outputData["versions"] = data
 
 def parse_biblio():
-    pass
+    data = []
+
+    outputData["bibliography"] = data
 
 
 if __name__ == "__main__":
