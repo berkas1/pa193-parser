@@ -1,0 +1,48 @@
+      BSI-DSZ-CC-1147-2020 (*)
+      Security IC with MRTD EAC/PACE Application
+      MTCOS Pro 2.5 EAC with PACE / P71D352 (N7121)
+
+      from                       MaskTech International GmbH
+      PP Conformance:            Common Criteria Protection Profile Machine                                    SOGIS
+                                                                                                         Recognition Agreement
+                                 Readable Travel Document with "ICAO Application"
+                                 Extended Access Control with PACE, Version
+                                 1.3.2, 5 December 2012, BSI-CC-PP-0056-V2-
+                                 2012-MA-02
+      Functionality:             PP conformant plus product specific extensions
+                                 Common Criteria Part 2 extended
+      Assurance:                 Common Criteria Part 3 conformant
+                                 EAL 5 augmented by ALC_DVS.2 and AVA_VAN.5
+
+
+The IT Product identified in this certificate has been evaluated at an approved evaluation
+facility using the Common Methodology for IT Security Evaluation (CEM), Version 3.1
+extended by Scheme Interpretations, by advice of the Certification Body for components
+beyond EAL 5 and CC Supporting Documents as listed in the Certification Report for
+conformance to the Common Criteria for IT Security Evaluation (CC), Version 3.1. CC
+and CEM are also published as ISO/IEC 15408 and ISO/IEC 18045.
+(*) This certificate applies only to the specific version and release of the product in its
+evaluated configuration and in conjunction with the complete Certification Report and
+Notification. For details on the validity see Certification Report part A chapter 5.
+The evaluation has been conducted in accordance with the provisions of the certification
+                                                                                                             Common Criteria
+scheme of the German Federal Office for Information Security (BSI) and the conclusions                   Recognition Arrangement
+of the evaluation facility in the evaluation technical report are consistent with the                   recognition for components
+evidence adduced.                                                                                            up to EAL 2 only
+
+This certificate is not an endorsement of the IT Product by the Federal Office for
+Information Security or any other organisation that recognises or gives effect to this
+certificate, and no warranty of the IT Product by the Federal Office for Information
+Security or any other organisation that recognises or gives effect to this certificate, is
+either expressed or implied.
+Bonn, 18 December 2020
+For the Federal Office for Information Security
+
+
+
+Sandro Amendola                             L.S.
+Head of Division
+                                   Bundesamt für Sicherheit in der Informationstechnik
+                       Godesberger Allee 185-189 - D-53175 Bonn -    Postfach 20 03 63 - D-53133 Bonn
+                   Phone +49 (0)228 99 9582-0 - Fax +49 (0)228 9582-5477 - Infoline +49 (0)228 99 9582-111
+
