@@ -1,0 +1,18 @@
+on: push
+jobs:
+  basic_tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Test no arguments
+      run: |
+        python main.py tests/empty_file.txt > _output.txt
+        diff _output.txt tests/simple_output/no_arguments.json
+    - name: Test only title on empty file input
+      run: |
+        python main.py --title tests/empty_file.txt > _output.txt
+        diff _output.txt tests/simple_output/title_only.json
