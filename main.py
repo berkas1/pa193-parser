@@ -1,11 +1,10 @@
 import argparse
 import json
+import sys
 
-config = {'all': False, 'parse_title': False, 'biblio' : False, 'versions' : False}
+config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False}
 
 outputData = {}
-
-
 
 parser = argparse.ArgumentParser(description='Parse Common Criteria certificates. Input has to be plain txt file. '
                                              'You can define what part to parse using arguments. Use --all to parse'
@@ -24,13 +23,7 @@ parser.add_argument('--bibliography', action='store_true',
 parser.add_argument('--versions', action='store_true',
                     help='Parse versions')
 
-
 args = parser.parse_args()
-
-print(args)
-
-
-
 
 
 def main():
@@ -39,11 +32,14 @@ def main():
     config["versions"] = args.versions
     config["biblio"] = args.bibliography
 
+    # if no arguments are supplied, consider --all as True
+    if len(sys.argv) == 2:
+        args.all = True
+
     # set everything to True if parameter --all is used (entire file will be parsed)
     if (args.all):
         for key in config.keys():
             config[key] = True
-
 
     if config["title"]:
         parse_title()
@@ -54,11 +50,7 @@ def main():
     if config["biblio"]:
         parse_biblio()
 
-
-
     print(json.dumps(outputData))
-
-
 
 
 def parse_title():
@@ -66,10 +58,12 @@ def parse_title():
 
     outputData["title"] = title
 
+
 def parse_versions():
     data = []
 
     outputData["versions"] = data
+
 
 def parse_biblio():
     data = []
@@ -79,6 +73,3 @@ def parse_biblio():
 
 if __name__ == "__main__":
     main()
-
-
-
