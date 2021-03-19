@@ -1,6 +1,9 @@
 import argparse
 import json
 import sys
+import re
+
+import src.ParseContents as p_contents
 
 config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False}
 
@@ -28,8 +31,10 @@ parser.add_argument('--versions', action='store_true',
 
 args = parser.parse_args()
 
+
+
+
 def main():
-    input_file = str(args.string)
     config["all"] = args.all
     config["title"] = args.title
     config["versions"] = args.versions
@@ -80,7 +85,11 @@ def parse_biblio():
 def parse_contents():
     data = []
 
-    outputData["table_of_content"] = data
+    outputData["table_of_content"] = p_contents.parse(args.string)
+
+
 
 if __name__ == "__main__":
     main()
+
+
