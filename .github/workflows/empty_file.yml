@@ -12,6 +12,10 @@ jobs:
       run: |
         python main.py tests/empty_file.txt > _output.txt
         diff _output.txt tests/simple_output/no_arguments.json
+    - name: Test --all parameter
+      run: |
+        python main.py --all tests/empty_file.txt > _output.txt
+        diff _output.txt tests/simple_output/no_arguments.json
     - name: Test only title on empty file input
       run: |
         python main.py --title tests/empty_file.txt > _output.txt
