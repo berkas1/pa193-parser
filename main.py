@@ -5,7 +5,7 @@ import re
 
 import src.ParseContents as p_contents
 
-config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False}
+config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False}
 
 outputData = {}
 input_file = ""
@@ -28,6 +28,8 @@ parser.add_argument('--contents', action='store_true',
                     help='Parse the table of contents')
 parser.add_argument('--versions', action='store_true',
                     help='Parse versions')
+parser.add_argument('--revisions', action='store_true',
+                    help='Parse revisions')
 
 args = parser.parse_args()
 
@@ -38,6 +40,7 @@ def main():
     config["all"] = args.all
     config["title"] = args.title
     config["versions"] = args.versions
+    config["revisions"] = args.revisions
     config["biblio"] = args.bibliography
     config["contents"] = args.contents
 
@@ -61,6 +64,9 @@ def main():
 
     if config["contents"]:
         parse_contents()
+
+    if config["revisions"]:
+        parse_revisions()
 
     print(json.dumps(outputData))
 
@@ -86,6 +92,9 @@ def parse_contents():
     data = []
 
     outputData["table_of_content"] = p_contents.parse(args.string)
+
+def parse_revisions():
+    outputData["revisions"] = []
 
 
 
