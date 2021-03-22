@@ -91,7 +91,7 @@ def parse_biblio():
 def parse_contents():
     data = []
 
-    outputData["table_of_content"] = p_contents.parse(args.string)
+    outputData["table_of_contents"] = p_contents.parse(args.string)
 
 def parse_revisions():
     outputData["revisions"] = []
