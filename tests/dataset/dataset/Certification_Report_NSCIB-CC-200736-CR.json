@@ -3,7 +3,7 @@
     "versions": {
         "eal": ["EAL2+", "EAL4", "EAL4", "EAL 4", "EAL5+"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["", "Foreword", 4],
         ["", "Recognition of the certificate", 5],
         ["", "International recognition", 5],

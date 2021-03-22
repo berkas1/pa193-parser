@@ -4,7 +4,7 @@
     "eal": ["EAL6", "EAL4", "EAL4+"],
     "des": ["single-des", "TDES", "Triple-DES"]
   },
-  "table_of_content": [
+  "table_of_contents": [
     [ "1", "ST Introduction", 2 ],
     [ "1.1", "ST Reference", 2 ],
     [ "1.2", "TOE Reference", 2 ],

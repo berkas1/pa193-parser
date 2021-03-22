@@ -5,7 +5,7 @@
         "sha": ["SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"],
         "des": ["Triple DES", "TripleDES", "Triple-DES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["1", "Introduction", 5],
         ["1.1", "Document Reference", 5],
         ["1.2", "Security Target Reference", 5],

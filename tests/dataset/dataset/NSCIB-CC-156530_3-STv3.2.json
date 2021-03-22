@@ -9,7 +9,7 @@
         "ecc": ["ECC 256"],
         "des": ["3DES", "DES3", "TDES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["1", "ST Introduction (ASE_INT)", 2],
         ["1.1", "ST Reference and TOE Reference", 2],
         ["1.2", "TOE Overview", 2],

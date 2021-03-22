@@ -5,7 +5,7 @@
         "sha": ["SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512", "SHA-3/224", "SHA-3/256", "SHA-3/384", "SHA-3/512", "SHA-3"],
         "des": ["Triple-DES", "3DES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["", "Foreword", 3],
         ["", "Recognition of the certificate", 4],
         ["", "International recognition", 4],

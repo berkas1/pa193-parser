@@ -5,7 +5,7 @@
     "sha": ["SHA-256"],
     "des": ["TDES", "Triple-DES", "Triple DES"]
   },
-  "table_of_content": [
+  "table_of_contents": [
     ["A", "Certification", 6],
     ["A.1", "Preliminary Remarks", 6],
     ["A.2", "Specifications of the Certification Procedure", 6],

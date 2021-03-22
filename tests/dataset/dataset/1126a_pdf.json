@@ -4,7 +4,7 @@
         "eal": ["EAL 5", "EAL 2", "EAL 1", "EAL 4", "EAL6", "EAL 2+"],
         "des": ["Triple-DES", "TDES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["A", "Certification", 6],
         ["1", "Preliminary Remarks", 6],
         ["2", "Specifications of the Certification Procedure", 6],

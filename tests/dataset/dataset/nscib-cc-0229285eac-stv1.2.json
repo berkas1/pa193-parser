@@ -6,7 +6,7 @@
         "rsa": ["RSASignaturePKCS1", "RSASSA-PSS"],
         "des": ["3DES", "Triple-DES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["1", "Introduction", 0],
         ["1.1", "ST/TOE Identification", 4],
         ["1.2", "ST overview", 4],

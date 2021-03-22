@@ -5,7 +5,7 @@
         "rsa": ["RSA2048", "RSA4096"],
         "des": ["Triple-DES", "TDES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["A", "Certification", 6],
         ["1", "Preliminary Remarks", 6],
         ["2", "Specifications of the Certification Procedure", 6],

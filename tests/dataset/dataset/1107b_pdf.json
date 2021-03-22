@@ -4,7 +4,7 @@
     "eal": ["EAL6", "EAL6+", "EAL5", "EAL 6"],
     "des": ["TDES", "triple-DES", "Triple-DES"]
   },
-  "table_of_content": [
+  "table_of_contents": [
     ["", "Table of Contents", 2],
     ["1", "Security Target Introduction (ASE_INT)", 4],
     ["1.1", "ST reference", 4],

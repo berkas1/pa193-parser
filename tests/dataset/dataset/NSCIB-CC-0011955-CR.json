@@ -4,7 +4,7 @@
         "eal": ["EAL2+", "EAL4", "EAL5", "EAL5+", "EAL 5"],
         "des": ["3DES", "Triple-DES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["", "Foreword", 3],
         ["", "Recognition of the certificate", 4],
         ["", "International recognition", 4],

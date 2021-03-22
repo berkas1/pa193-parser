@@ -5,7 +5,7 @@
         "sha": ["SHA1", "SHA256", "SHA-2", "SHA-256", "SHA-512"],
         "rsa": ["RSA2048", "RSA4096"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["", "Revision History", 4],
         ["", "Table of Contents", 5],
         ["1", "Security Target Introduction (ASE_INT)", 7],

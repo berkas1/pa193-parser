@@ -5,7 +5,7 @@
         "sha": ["SHA-1"],
         "des": ["3DES", "TDES", "Triple-DES", "Triple DES"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["1.3.1", "TOE definition", 3],
         ["1.3.2", "TOE operational usage", 4],
         ["1.3.3", "TOE major security features", 4],

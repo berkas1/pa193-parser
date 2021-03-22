@@ -4,7 +4,7 @@
         "eal": ["EAL 5+", "EAL 6+", "EAL5", "EAL 5", "EAL4"],
         "sha": ["SHA-224", "SHA-256", "SHA-384", "SHA-512"]
     },
-    "table_of_content": [
+    "table_of_contents": [
         ["1", "Introduction", 4],
         ["1.1", "ST/TOE Identification", 4],
         ["1.2", "ST overview", 4],
