@@ -22,6 +22,18 @@ optional arguments:
 ```
 
 
+**Tests**
+
+Tests using dataset:
+```
+cd tests/dataset/
+bash test.sh
+```
+
+Provided output shows score [0, 100] for each file. If value is missing, the scoring script failed.
+
+
+
 **Used language:** Python
 
 **Authors**
