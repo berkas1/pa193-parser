@@ -5,6 +5,7 @@ import re
 
 import src.ParseContents as p_contents
 import src.ParseBibliography as p_bibliography
+import src.ParseTitle as p_title
 
 config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False}
 
@@ -73,9 +74,8 @@ def main():
 
 
 def parse_title():
-    title = ""
 
-    outputData["title"] = title
+    outputData["title"] = p_title.parse(args.string)
 
 
 def parse_versions():
