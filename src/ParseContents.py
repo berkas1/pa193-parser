@@ -44,7 +44,7 @@ def parse(file):
     data = []
 
     contents_firstLine = 0
-    with open(file) as fp:
+    with open(file, encoding="utf8") as fp:
         # find line with "content" word and jump to next line
         for i, line in enumerate(fp):
             if (str(line).lower()).find("content") != -1:
