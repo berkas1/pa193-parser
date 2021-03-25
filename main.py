@@ -4,6 +4,7 @@ import sys
 import re
 
 import src.ParseContents as p_contents
+import src.ParseBibliography as p_bibliography
 
 config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False}
 
@@ -86,7 +87,7 @@ def parse_versions():
 def parse_biblio():
     data = []
 
-    outputData["bibliography"] = data
+    outputData["bibliography"] = p_bibliography.parse(args.string)
 
 def parse_contents():
     data = []
