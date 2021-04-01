@@ -6,6 +6,7 @@ import re
 import src.ParseContents as p_contents
 import src.ParseBibliography as p_bibliography
 import src.ParseTitle as p_title
+import src.ParseVersions as p_versions
 
 config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False}
 
@@ -81,7 +82,7 @@ def parse_title():
 def parse_versions():
     data = []
 
-    outputData["versions"] = data
+    outputData["versions"] = p_versions.parse(args.string)
 
 
 def parse_biblio():
