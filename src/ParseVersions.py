@@ -1,19 +1,17 @@
 import re 
-#nefunguje, ked pred a po hladanom slove nie je text
-#problematicke hodnoty s + alebo medzerou
 
 def parseEal(data):
-	result = re.findall(r' EAL4 |EAL4| EAL5 |EAL5| EAL6 |EAL6| EAL\s1 |EAL\s1| EAL\s2 |EAL\s2| EAL\s4 |EAL\s4| EAL\s5 |EAL\s5| EAL\s6 |EAL\s6| EAL2\+ |EAL2\+| EAL4\+ |EAL4\+| EAL5\+ |EAL5\+| EAL6\+ |EAL6\+| EAL\s2\+ |EAL\s2\+| EAL\s4\+ |EAL\s4\+| EAL\s5\+ |EAL\s5\+|EAL\s6\+| EAL\s6\+ ', data)
+	result = re.findall(r'\s*EAL\s\d\+|\s*EAL\d\+|\s*EAL\s\d|\s*EAL\d', data)
 
 	return list(dict.fromkeys(result))
 
 def parseSha(data):
-	result = re.findall(r'SHA1|SHA2|SHA224|SHA256|SHA384|SHA512|SHA\s256|SHA\s512|SHA-1|SHA-2|SHA-3| SHA-224 |SHA-224| SHA-256 | SHA-384 | SHA-512 |SHA\_224|SHA\_256|SHA\_384|SHA\_512|SHA-3/224|SHA-3/256|SHA-3/384|SHA-3/512', data)
+	result = re.findall(r'\s*SHA-\d\/[0-9]+|\s*SHA\\_[0-9]+|\s*SHA-[0-9]+|\s*SHA\s[0-9]+|\s*SHA[0-9]+', data)
 	
 	return list(dict.fromkeys(result))
 
 def parseRsa(data):
-	result = re.findall(r'RSA\s1024|RSA2048|RSA4096|RSA\s2048|REA\s2048|RSA\s4096|RSA2048/4096|RSA-2048|RSA-CRT|RSASignaturePKCS1|RSASSA-PSS', data)
+	result = re.findall(r'\s*RSASSA-PSS|\s*RSASignaturePKCS1|\s*RSA-CRT|\s*RSA2048\/4096|\s*RSA-[0-9]+|\s*RSA [0-9]+|\s*RSA\s[0-9]+|\s*RSA[0-9]+', data)
 
 	return list(dict.fromkeys(result))
 
@@ -23,24 +21,22 @@ def parseDes(data):
 	return list(dict.fromkeys(result))
 
 def parseEcc(data):
-	result = re.findall(r'ECC\s224', data) #nefunguje ECC 224!! Odstranene ECC
+	result = re.findall(r'\s*ECC\s[0-9]+|\s*ECC[0-9]+', data) #nefunguje ECC 224!! Odstranene ECC
 
 	return list(dict.fromkeys(result))
 
 def parseJavaCard(data):
-	result = re.findall(r'Java\sCard\s3|Java\sCard\s3.0.5|Java\sCard\s3.0.4', data)
+	result = re.findall(r'\s*Java\sCard\s\d\.\d\.\d|\s*Java\sCard\s\d\s', data)
 
 	return list(dict.fromkeys(result)) 
 
 def parseGlobalPlatform(data):
-	result = re.findall(r'GlobalPlatform\s2.3|GlobalPlatform\s2.2.1"', data) #nefunguje GlobalPlatform 2.2.1!
-
+	result = re.findall(r'\s*GlobalPlatform\s\d\.\d\.\d|\s*GlobalPlatform\s\d\.\d', data)
 	return list(dict.fromkeys(result))
 
 def removeDuplicities(tmp):
-	# remove spaces
 	tmp = [item.strip(' ') for item in tmp]
-	# remove duplcicates
+	
 	tmp = list(dict.fromkeys(tmp))
 	return tmp
 
