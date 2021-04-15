@@ -2,6 +2,7 @@ import argparse
 import json
 import sys
 import re
+import os
 
 import src.ParseContents as p_contents
 import src.ParseBibliography as p_bibliography
@@ -61,6 +62,10 @@ def main():
 
     for f in inputFiles:
         fileData = {}
+
+        if not os.path.isfile(f):
+            print("ERROR: File {file} does not exist.".format(file=f))
+            exit(10)
 
         if config["title"]:
             fileData["title"] = parse_title(f)
