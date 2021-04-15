@@ -9,15 +9,16 @@ import src.ParseTitle as p_title
 import src.ParseVersions as p_versions
 
 config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False}
+inputFiles = []
 
-outputData = {}
+outputData = []
 input_file = ""
 
 parser = argparse.ArgumentParser(description='Parse Common Criteria certificates. Input has to be plain txt file. '
                                              'You can define what part to parse using arguments. Use --all to parse'
                                              ' entire file.')
 parser.add_argument('string', metavar='FILE.TXT', type=str,
-                    help='file to parse')
+                    help='file to parse', nargs='+')
 parser.add_argument('--verbose', action='store_true',
                     help='sum the integers (default: find the max)')
 
@@ -34,9 +35,8 @@ parser.add_argument('--versions', action='store_true',
 parser.add_argument('--revisions', action='store_true',
                     help='Parse revisions')
 
+
 args = parser.parse_args()
-
-
 
 
 def main():
@@ -48,7 +48,8 @@ def main():
     config["contents"] = args.contents
 
     # if no arguments are supplied, consider --all as True
-    if len(sys.argv) == 2:
+    if (not config["title"] and not config["versions"] and not config["revisions"] and not config["biblio"] and not config[
+        "contents"]):
         args.all = True
 
     # set everything to True if parameter --all is used (entire file will be parsed)
@@ -56,51 +57,53 @@ def main():
         for key in config.keys():
             config[key] = True
 
-    if config["title"]:
-        parse_title()
+    inputFiles = args.string
 
-    if config["versions"]:
-        parse_versions()
+    for f in inputFiles:
+        fileData = {}
 
-    if config["biblio"]:
-        parse_biblio()
+        if config["title"]:
+            fileData["title"] = parse_title(f)
 
-    if config["contents"]:
-        parse_contents()
+        if config["versions"]:
+            fileData["versions"] = parse_versions(f)
 
-    if config["revisions"]:
-        parse_revisions()
+        if config["biblio"]:
+            fileData["bibliography"] = parse_biblio(f)
 
-    print(json.dumps(outputData))
+        if config["contents"]:
+            fileData["table_of_contents"] = parse_contents(f)
+
+        if config["revisions"]:
+            fileData["revisions"] = parse_revisions(f)
+
+        outputData.append(fileData)
+
+    # print(json.dumps(outputData))
+    for f in range(0, len(outputData)):
+        print(json.dumps(outputData[f]))
+        pass
 
 
-def parse_title():
-
-    outputData["title"] = p_title.parse(args.string)
-
-
-def parse_versions():
-    data = []
-
-    outputData["versions"] = p_versions.parse(args.string)
+def parse_title(file):
+    return p_title.parse(file)
 
 
-def parse_biblio():
-    data = []
+def parse_versions(file):
+    return p_versions.parse(file)
 
-    outputData["bibliography"] = p_bibliography.parse(args.string)
 
-def parse_contents():
-    data = []
+def parse_biblio(file):
+    return p_bibliography.parse(file)
 
-    outputData["table_of_contents"] = p_contents.parse(args.string)
 
-def parse_revisions():
-    outputData["revisions"] = []
+def parse_contents(file):
+    return p_contents.parse(file)
 
+
+def parse_revisions(file):
+    return []
 
 
 if __name__ == "__main__":
     main()
-
-
