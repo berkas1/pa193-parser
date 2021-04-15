@@ -88,7 +88,7 @@ def parse(file):
                         #print(line)
                     else:
                         page_number = -1
-                result = ["-1", headline, int(page_number)]
+                result = ["", headline, int(page_number)]
 
                 data.append(result)
 
