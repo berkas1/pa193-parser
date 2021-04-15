@@ -4,10 +4,10 @@
 **Usage**
 
 ```
-python3 main.py -h
-usage: main.py [-h] [--verbose] [--all] [--title] [--bibliography] [--versions] FILE.TXT
+usage: main.py [-h] [--verbose] [--all] [--title] [--bibliography] [--contents] [--versions] [--revisions] FILE.TXT [FILE.TXT ...]
 
-Parse Common Criteria certificates. Input has to be plain txt file. You can define what part to parse using arguments. Use --all to parse entire file.
+Parse Common Criteria certificates. Input has to be plain txt file. You can define what part to parse using arguments. Use --all or no argument to parse
+entire file.
 
 positional arguments:
   FILE.TXT        file to parse
@@ -18,7 +18,9 @@ optional arguments:
   --all           Parse the entire file
   --title         Parse the title
   --bibliography  Parse the bibliography
+  --contents      Parse the table of contents
   --versions      Parse versions
+  --revisions     Parse revisions
 ```
 
 

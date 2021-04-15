@@ -15,7 +15,7 @@ outputData = []
 input_file = ""
 
 parser = argparse.ArgumentParser(description='Parse Common Criteria certificates. Input has to be plain txt file. '
-                                             'You can define what part to parse using arguments. Use --all to parse'
+                                             'You can define what part to parse using arguments. Use --all or no argument to parse'
                                              ' entire file.')
 parser.add_argument('string', metavar='FILE.TXT', type=str,
                     help='file to parse', nargs='+')
