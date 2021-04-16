@@ -15,7 +15,7 @@ def check_title(actual, expected):
         return 0
 
     if not "title" in expected:
-        return 0
+        expected["title"] = ""
 
     similarity = SequenceMatcher(None, actual["title"], expected["title"]).ratio()
     return 20 * similarity
@@ -27,7 +27,7 @@ def check_versions(actual, expected):
         return 0
 
     if not "versions" in expected:
-        return 0
+        expected["versions"] = {}
 
     actual = actual["versions"]
     expected = expected["versions"]
@@ -63,7 +63,7 @@ def check_toc(actual, expected):
         return 0
 
     if not "table_of_contents" in expected:
-        return 0
+        expected["table_of_contents"] = []
 
     actual = list(filter(lambda x: len(x) == 3, actual["table_of_contents"]))
     expected = expected["table_of_contents"]
@@ -101,7 +101,7 @@ def check_revisions(actual, expected):
         return 0
 
     if not "revisions" in expected:
-        return 0
+        expected["revisions"] = []
 
     actual = list(filter(lambda x: set(x) == {"version", "date", "description"}, actual["revisions"]))
     expected = expected["revisions"]
@@ -139,7 +139,7 @@ def check_bibliography(actual, expected):
         return 0
 
     if not "bibliography" in expected:
-        return 0
+        expected["bibliography"] = {}
 
     actual = actual["bibliography"]
     expected = expected["bibliography"]
