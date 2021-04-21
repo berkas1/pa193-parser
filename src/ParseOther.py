@@ -13,35 +13,29 @@ def parseUntilFor(string, index):
 
     return data
 
-def parseUntilReference(string, index):
-    data = string[:index]
-    data = replaceLinesAndStrip(data)
-
-    return data
-
 def parseUntilReportNumber(string, index):
-    data = string[:index]
+    data = string[index:]
     data = replaceLinesAndStrip(data)
-
-    return data
+    #print (data)
+    tmp_index = data.find("Report number")
+    data = data[tmp_index:].strip()
+    
+    return (data.split()[2])
 
 def parseSTLuntilCC(string, index):
-    data = string[index:].split('\n', 1)[1]
-    data = data.strip()
-
-    tmp_index = data.find("Common Criteria")
-    data = data[:tmp_index].strip()
+    data = string.split('\n', 1)[1].strip()
+    data = data[:data.find("Common")]
+    data = replaceLinesAndStrip(data)
 
     return data
 
 def parseDocumentInformation(string, index):
-    data = string[index:]
-    data = data.split('\n', 2)[2]
-
-    data = data.strip()
-    data = data[:data.find("\n\n")]
-
+    data = string[:index]
     data = replaceLinesAndStrip(data)
+    index = data.find("BSI")
+    data = data[index:]
+    print ()
+    print (index)
 
     return data
 
@@ -54,28 +48,29 @@ def parse(file):
     with open(file, encoding="utf8") as fp:
         for i, line in enumerate(fp):
             orig_string += line
-            if i > 50:
+            if i > 100:
                 break
-
-        # if "Document Information" almost at the beginning
-        index = orig_string.find("Document Information")
-        if (index < 600 and index > 0):
-            data = parseDocumentInformation(orig_string, index)
 
         # between "Security Target Lite" and Common "Criteria"
         stringWithoutForIndex = orig_string.find("Security Target Lite")
 
-        if (stringWithoutForIndex < 100 and stringWithoutForIndex > 0):
-            data = parseSTLuntilCC(orig_string, stringWithoutForIndex)
-
+        if (stringWithoutForIndex < 1000 and stringWithoutForIndex > 0):
+            data = parseSTLuntilCC(orig_string[stringWithoutForIndex+20:], stringWithoutForIndex)
+            return {"certid": data}
         # If "for" in the begining
         index = orig_string.find("for")
         if (index < 100 and index > 10):
             data = parseUntilFor(orig_string, index)
-
+            return {"certid": data}
         # report number
         index = orig_string.find("Report number:")
-        if (index < 500 and index > 10):
-            data = parseUntilSecurityTarget(orig_string, index)
+        if (index < 2000 and index > 10):
+            data = parseUntilReportNumber(orig_string, index)
+            return {"certid": data}
+        # if "Document Information" almost at the beginning
+        index = orig_string.find("Document Information")
+        if (index < 600 and index > 0):
+            data = parseDocumentInformation(orig_string, index)
+            return {"certid": data}
 
-    return {"certid": data}
+    return {}
