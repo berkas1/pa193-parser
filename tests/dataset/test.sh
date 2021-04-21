@@ -7,7 +7,7 @@ averageScore=0
 
 for file in dataset/*.txt; do
 	newname=${file%.*}
-	python ../../main.py $file > .parser_output/$newname.json
+	python3 ../../main.py $file > .parser_output/$newname.json
 	numberOfFiles=$(($numberOfFiles+1))
 done
 
@@ -16,7 +16,7 @@ echo "Parsed files:" $numberOfFiles
 for file in dataset/*.txt; do
 	newname=${file%.*}
 	
-	res=$(python output_compare.py $newname.json .parser_output/$newname.json 2> /dev/null)
+	res=$(python3 output_compare.py $newname.json .parser_output/$newname.json 2> /dev/null)
 	echo $newname".json => " $res
 	averageScore=$((averageScore+res))
 	numberOfFiles=$(($numberOfFiles+1))
