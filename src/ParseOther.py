@@ -24,7 +24,7 @@ def parseUntilReportNumber(string, index):
 
 def parseSTLuntilCC(string, index):
     data = string.split('\n', 1)[1].strip()
-    data = data[:data.find("Common")]
+    data = data[:data.find("Common Criteria")]
     data = replaceLinesAndStrip(data)
 
     return data

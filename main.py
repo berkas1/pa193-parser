@@ -117,7 +117,7 @@ def parse_revisions(file):
     return []
 
 def parse_other(file):
-    return p_other.parse(file)
+    return {}
 
 if __name__ == "__main__":
     main()
