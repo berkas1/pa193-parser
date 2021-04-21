@@ -8,6 +8,7 @@ import src.ParseContents as p_contents
 import src.ParseBibliography as p_bibliography
 import src.ParseTitle as p_title
 import src.ParseVersions as p_versions
+import src.ParseRevisions as p_revisions
 
 config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False}
 inputFiles = []
@@ -107,7 +108,7 @@ def parse_contents(file):
 
 
 def parse_revisions(file):
-    return []
+    return p_revisions.parse(file)
 
 
 if __name__ == "__main__":
