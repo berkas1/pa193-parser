@@ -108,7 +108,6 @@ def parse_contents(file):
 
 
 def parse_revisions(file):
-   # return []
     return p_revisions.parse(file)
 
 
