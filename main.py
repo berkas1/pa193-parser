@@ -1,7 +1,5 @@
 import argparse
 import json
-import sys
-import re
 import os
 
 import src.ParseContents as p_contents
@@ -10,14 +8,18 @@ import src.ParseTitle as p_title
 import src.ParseVersions as p_versions
 import src.ParseRevisions as p_revisions
 
-config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False}
+config = {'all': False, 'parse_title': False, 'biblio': False,
+          'versions': False, 'contents': False, 'revisions': False}
 inputFiles = []
 
 outputData = []
 input_file = ""
 
-parser = argparse.ArgumentParser(description='Parse Common Criteria certificates. Input has to be plain txt file. '
-                                             'You can define what part to parse using arguments. Use --all or no argument to parse'
+parser = argparse.ArgumentParser(description='Parse Common Criteria certificates. '
+                                             'Input has to be plain txt file. '
+                                             'You can define what part to parse '
+                                             'using arguments. Use --all or no '
+                                             'argument to parse '
                                              ' entire file.')
 parser.add_argument('string', metavar='FILE.TXT', type=str,
                     help='file to parse', nargs='+')
@@ -50,12 +52,12 @@ def main():
     config["contents"] = args.contents
 
     # if no arguments are supplied, consider --all as True
-    if (not config["title"] and not config["versions"] and not config["revisions"] and not config["biblio"] and not config[
-        "contents"]):
+    if (not config["title"] and not config["versions"] and not config["revisions"] and
+            not config["biblio"] and not config["contents"]):
         args.all = True
 
     # set everything to True if parameter --all is used (entire file will be parsed)
-    if (args.all):
+    if args.all:
         for key in config.keys():
             config[key] = True
 

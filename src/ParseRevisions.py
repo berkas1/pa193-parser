@@ -66,11 +66,11 @@ def parseItem(line):
 
     # there are 3 different types of date
     # 01-01-1970
-    date_un = re.search("\d+\-\w+\-\d+\D{1}", line)
+    date_un = re.search("\d+\-\w+\-\d+\D", line)
     # 01.01.1970
-    date_dot = re.search("\d{2}\.\w+\.\d+\D{1}", line)
+    date_dot = re.search("\d{2}\.\w+\.\d+\D", line)
     # 01 01 1970
-    date_space = re.search("\d{2}\s\w+\s\d+\D{1}", line)
+    date_space = re.search("\d{2}\s\w+\s\d+\D", line)
 
     if date_un:
         date = date_un.group()
@@ -130,6 +130,7 @@ def transferDate(date, delim):
         }
         tmp[1] = switcher.get(tmp[1])
     return "-".join(tmp)
+
 
 # data might contain unwanted items at the end, e.g. duplicities
 # here are data filtered and the un. items removed

@@ -1,5 +1,6 @@
 import re
 
+
 def helperRemoveTrailingChars(s):
     if len(s) < 1:
         return ""
@@ -17,9 +18,8 @@ def helperRemoveTrailingChars(s):
 def contentsGetHeadlinePageNumber(line, previous):
     headline = ""
     page_number = 0
-    #print(line[(previous.span()[1] + 1):].strip())
+    # print(line[(previous.span()[1] + 1):].strip())
     start_position = (previous.span()[1])
-
 
     newline = line[start_position:].strip()
     tmp2 = re.search("^((.*?)\.\.)|((.*?)\ \ )", newline)
@@ -30,14 +30,14 @@ def contentsGetHeadlinePageNumber(line, previous):
 
         # get page number
 
-        tmp_page = re.search("[1-9][0-9]*", (line[tmp2.span()[1]+start_position+10:]).strip())
+        tmp_page = re.search("[1-9][0-9]*", (line[tmp2.span()[1] + start_position + 10:]).strip())
 
         if tmp_page is not None:
 
             page_number = tmp_page.group()
         else:
             page_number = -1
-    return (headline, page_number)
+    return headline, page_number
 
 
 def parse(file):
@@ -63,7 +63,7 @@ def parse(file):
             # skip new lines
             tmp = re.search("^$", line)
             if tmp is not None:
-                if previous_line_empty == True or empty_lines == 0:
+                if previous_line_empty is True or empty_lines == 0:
                     empty_lines += 1
                 previous_line_empty = True
                 continue
@@ -85,7 +85,7 @@ def parse(file):
 
                     if tmp_page is not None:
                         page_number = tmp_page.group()
-                        #print(line)
+                        # print(line)
                     else:
                         page_number = -1
                 result = ["", headline, int(page_number)]
@@ -105,8 +105,6 @@ def parse(file):
 
                 data.append(result)
 
-
-
     # now remove all false entries
     if len(data) < 1:
         return []
@@ -114,13 +112,12 @@ def parse(file):
     last_page_number = int(data[0][2])
     to_remove = []
     for e in data:
-        if int(e[2]) < last_page_number or int(e[2]) > 10*last_page_number:
+        if int(e[2]) < last_page_number or int(e[2]) > 10 * last_page_number:
             to_remove.append(e)
         else:
             last_page_number = int(e[2])
-    #print(data)
+    # print(data)
     for e in to_remove:
         data.remove(e)
-
 
     return data

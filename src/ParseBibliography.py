@@ -1,7 +1,7 @@
 import re
 
-def parse(file):
 
+def parse(file):
     data = {}
 
     with open(file, encoding="utf8") as fp:
@@ -17,9 +17,8 @@ def parse(file):
             # find line with "References" or "Bibliography" or "Literature" leading with new line
             # and with previous line empty and the row > 150 to get next occurrence
             if (re.search("References\n", line) is not None or
-               re.search("Bibliography\n", line) is not None or
-               re.search("Literature\n", line) is not None) and i > 150 and previous_line_empty:
-
+                re.search("Bibliography\n", line) is not None or
+                re.search("Literature\n", line) is not None) and i > 150 and previous_line_empty:
                 bibliography_firstLine = i + 2
                 break
 
