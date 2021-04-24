@@ -7,9 +7,10 @@ import src.ParseBibliography as p_bibliography
 import src.ParseTitle as p_title
 import src.ParseVersions as p_versions
 import src.ParseRevisions as p_revisions
+import src.ParseOther as p_other
 
-config = {'all': False, 'parse_title': False, 'biblio': False,
-          'versions': False, 'contents': False, 'revisions': False}
+config = {'all': False, 'parse_title': False, 'biblio': False, 'versions': False, 'contents': False, 'revisions': False, 'other': False}
+
 inputFiles = []
 
 outputData = []
@@ -38,6 +39,8 @@ parser.add_argument('--versions', action='store_true',
                     help='Parse versions')
 parser.add_argument('--revisions', action='store_true',
                     help='Parse revisions')
+parser.add_argument('--other', action='store_true',
+                    help='Parse other')
 
 
 args = parser.parse_args()
@@ -50,10 +53,12 @@ def main():
     config["revisions"] = args.revisions
     config["biblio"] = args.bibliography
     config["contents"] = args.contents
+    config["other"] = args.other
 
     # if no arguments are supplied, consider --all as True
-    if (not config["title"] and not config["versions"] and not config["revisions"] and
-            not config["biblio"] and not config["contents"]):
+    if (not config["title"] and not config["versions"] and not config["revisions"] and not config["biblio"] and not config[
+        "contents"] and not config["other"]):
+
         args.all = True
 
     # set everything to True if parameter --all is used (entire file will be parsed)
@@ -85,6 +90,9 @@ def main():
         if config["revisions"]:
             fileData["revisions"] = parse_revisions(f)
 
+        if config["other"]:
+            fileData["other"] = parse_other(f)
+
         outputData.append(fileData)
 
     # print(json.dumps(outputData))
@@ -112,6 +120,8 @@ def parse_contents(file):
 def parse_revisions(file):
     return p_revisions.parse(file)
 
+def parse_other(file):
+    return {}
 
 if __name__ == "__main__":
     main()
