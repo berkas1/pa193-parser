@@ -63,7 +63,7 @@ def parse(file):
 
     orig_string = ""
 
-    with open(file, encoding="utf8") as fp:
+    with open(file, encoding="utf8", errors="ignore") as fp:
         for i, line in enumerate(fp):
             orig_string += line
             if i > 30:

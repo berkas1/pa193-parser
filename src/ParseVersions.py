@@ -61,7 +61,7 @@ def parse(file):
     javaCardList = []
     globalPlatformList = []
 
-    with open(file, encoding="utf8") as fp:
+    with open(file, encoding="utf8", errors="ignore") as fp:
         for i, line in enumerate(fp):
             result = parseEal(line)
             if result:

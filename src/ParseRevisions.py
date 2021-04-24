@@ -4,7 +4,7 @@ import re
 def parse(file):
     data = []
     index = 0
-    with open(file, encoding="utf8") as fp:
+    with open(file, encoding="utf8", errors="ignore") as fp:
         for i, line in enumerate(fp):
             if re.search("Revision History\n", line) is not None or \
                     re.search("Revision history\n", line) is not None or \

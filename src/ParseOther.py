@@ -45,7 +45,7 @@ def parse(file):
 
     orig_string = ""
     tmp_i = 0
-    with open(file, encoding="utf8") as fp:
+    with open(file, encoding="utf8", errors="ignore") as fp:
         for i, line in enumerate(fp):
             orig_string += line
             if i > 100:

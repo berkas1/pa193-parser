@@ -4,7 +4,7 @@ import re
 def parse(file):
     data = {}
 
-    with open(file, encoding="utf8") as fp:
+    with open(file, encoding="utf8", errors="ignore") as fp:
 
         bibliography_firstLine = 0
         previous_line_empty = False
