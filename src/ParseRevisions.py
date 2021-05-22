@@ -92,7 +92,7 @@ def parseItem(line):
 
     arr = line.split()
     # remove unwanted text in description
-    if arr[0] == "v" or arr[0] == "Rev." or arr[0] == "Version":
+    if len(arr) > 0 and (arr[0] == "v" or arr[0] == "Rev." or arr[0] == "Version"):
         arr.remove(arr[0])
     description = " ".join(arr)
 
@@ -128,7 +128,8 @@ def transferDate(date, delim):
             "November": "11",
             "December": "12"
         }
-        tmp[1] = switcher.get(tmp[1])
+        if switcher.get(tmp[1]) is not None:
+            tmp[1] = switcher.get(tmp[1])
     return "-".join(tmp)
 
 

@@ -8,7 +8,7 @@ def helperRemoveTrailingChars(s):
     if s[0] == ".":
         s = s[1:]
 
-    if s[-1] == ".":
+    if len(s) > 1 and s[-1] == ".":
         s = s[:-2]
     s = s.strip()
 
