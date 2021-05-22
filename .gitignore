@@ -1,7 +1,0 @@
-/_output/
-/.idea/
-/venv/
-.parser_output/
-test
-__pycache__/
-.DS_Store
